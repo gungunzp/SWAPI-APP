@@ -1,0 +1,92 @@
+@import 'variables';
+@import 'helpers';
+
+// adjustments
+html {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-size: 18px;
+  overflow-x: hidden;
+
+  //@media only screen and (max-width: $tablet) {
+  //  font-size: 15px;
+  //}
+}
+
+* {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  font-family: 'ProximaNova', 'Helvetica', sans-serif;
+  background-color: rgba($gray-devtool, 0.5);
+}
+
+ul {
+  //list-style: none;
+  margin: 0;
+  //padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+// main
+.title {
+  display: block;
+  text-align: center;
+  margin: .5rem 0;
+  font-weight: bold;
+  color: $black;
+  @include container();
+}
+
+// nav
+.nav {
+  background-color: $blue-bg;
+}
+
+.nav__wrap {
+  @include container();
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+}
+
+.nav__item {
+  //flex-grow: 1;
+}
+
+.nav__link {
+  display: inline-block;
+  cursor: pointer;
+  color: $white;
+  padding: .5rem 1rem;
+  text-align: center;
+  transition: $animation-time;
+
+  &:hover {
+    color: $black;
+  }
+}
+
+// starships
+.container {
+  @include container();
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+.search-form {
+  padding-bottom: 2rem;
+}
+
+.marked {
+  background-color: $blue-bg;
+  //color: $white;
+}
