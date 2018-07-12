@@ -13,9 +13,10 @@ import { API_URL } from '../constants/index';
 export async function get(url) {
   let response;
   try {
-    // store.dispatch(requestStatus(true));
     response = await fetch(`${API_URL}${url}`);
-    // store.dispatch(requestStatus(false));
+    if (!response.ok) {
+      throw Error('Network request failed');
+    }
     return await response.json();
   } catch (e) {
     // error will still be displayed in console

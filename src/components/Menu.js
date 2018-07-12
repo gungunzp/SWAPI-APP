@@ -18,9 +18,6 @@ export default class Menu extends Component {
 							<Link to={link} className="nav__link">
 								{link}
 							</Link>
-							{/*<Link to={`/${link}`} className="nav__link">*/}
-							{/*{link}*/}
-							{/*</Link>*/}
 						</li>
 					))}
 				</ul>

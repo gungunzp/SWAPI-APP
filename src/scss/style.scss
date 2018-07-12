@@ -37,6 +37,12 @@ a {
 }
 
 // main
+.app-wrap {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
 .title {
   display: block;
   text-align: center;
@@ -86,7 +92,38 @@ a {
   padding-bottom: 2rem;
 }
 
+.input-wrap {
+  position: relative;
+}
+
+.input-wrap__clear {
+  position: absolute;
+  cursor: pointer;
+  right: .3rem;
+  top: 0;
+}
+
 .marked {
   background-color: $blue-bg;
   //color: $white;
+}
+
+.json {
+  @include container();
+  @include custom-scroll($white);
+  white-space: pre-wrap;
+  word-break: break-all;
+  background-color: $gray-devtool;
+  border: .4rem solid transparent;
+  background-clip: padding-box;
+  padding: .7rem;
+  color: $white;
+  font-size: .7rem;
+  font-family: monospace;
+  border-radius: .8rem;
+  max-height: 40rem;
+  overflow-y: auto;
+  margin-bottom: 0;
+  margin-top: auto;
+  flex-grow: 1;
 }
