@@ -2,8 +2,9 @@ import React, { Component, Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { getShips } from '../store/actions';
+import { getShips, setPending } from '../store/actions';
 import Menu from './Menu';
+import { JsonBlock } from './JsonBlock';
 import smallImg from '../img/react_logo_small.jpg';
 
 const mapStateToProps = state => ({
@@ -12,7 +13,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-	getShips: bindActionCreators(getShips, dispatch)
+  getShips: bindActionCreators(getShips, dispatch),
+  setPending: bindActionCreators(setPending, dispatch)
 });
 
 class Starships extends Component {
@@ -23,8 +25,12 @@ class Starships extends Component {
 	};
 
 	componentDidMount() {
-		this.props.getShips(this.state.page);
+		!this.props.ships.length && this.props.getShips(this.state.page);
 	}
+
+	componentWillUnmount() {
+    this.props.pending && this.props.setPending(false);
+  }
 
 	arrayOfEntries = (str, query, caseSensitive) => {
 		if (
@@ -57,7 +63,6 @@ class Starships extends Component {
 	};
 
 	render() {
-	  const jsonBlock = json => <pre className="json">{json && !!json.length ? JSON.stringify(json, null, 2) : 'No data'}</pre>;
 		const { inputVal, caseSensitive } = this.state;
 		const { ships, pending } = this.props;
 		let filteredShips = ships.filter(
@@ -127,7 +132,7 @@ class Starships extends Component {
 						)}
 					</ul>
 				</section>
-        {jsonBlock(filteredShips)}
+        <JsonBlock json={filteredShips}/>
 			</Fragment>
 		);
 	}

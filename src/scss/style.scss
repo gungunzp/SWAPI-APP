@@ -49,7 +49,7 @@ a {
   margin: .5rem 0;
   font-weight: bold;
   color: $black;
-  @include container();
+  @include container;
 }
 
 // nav
@@ -58,7 +58,7 @@ a {
 }
 
 .nav__wrap {
-  @include container();
+  @include container;
   display: flex;
   justify-content: space-around;
   list-style: none;
@@ -83,7 +83,7 @@ a {
 
 // starships
 .container {
-  @include container();
+  @include container;
   margin-top: 1rem;
   margin-bottom: 2rem;
 }
@@ -109,21 +109,46 @@ a {
 }
 
 .json {
-  @include container();
-  @include custom-scroll($white);
+  @include container($padding-sides: null);
+  flex-basis: 100%;
+  border-radius: .8rem;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  border: .4rem solid transparent;
+  background-clip: padding-box;
+
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    pointer-events: none;
+    left: 0;
+    right: .8rem;
+    height: 1.5rem;
+    z-index: 1;
+  }
+
+  &:before {
+    top: 0;
+    background-image: linear-gradient(to top, transparent 0%, $gray-devtool 100%);
+  }
+
+  &:after {
+    bottom: 0;
+    background-image: linear-gradient(to bottom, transparent 0%, $gray-devtool 100%);
+  }
+}
+
+.json__inner {
+  @include custom-scroll;
   white-space: pre-wrap;
   word-break: break-all;
   background-color: $gray-devtool;
-  border: .4rem solid transparent;
-  background-clip: padding-box;
-  padding: .7rem;
   color: $white;
   font-size: .7rem;
-  font-family: monospace;
-  border-radius: .8rem;
-  max-height: 40rem;
+  padding: .7rem;
   overflow-y: auto;
-  margin-bottom: 0;
-  margin-top: auto;
-  flex-grow: 1;
+  margin: 0;
+  width: 100%;
 }

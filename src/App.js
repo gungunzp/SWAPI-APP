@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Starships from './components/Starships';
 import Films from './components/Films';
 
-// TODO: pagination, fix routes on refresh, load more ships btn, break to components with own css (app-flex-wrapper, json, list(props: search, pagination/feed ), json component: add before/after shadow gradient
+// TODO: pagination, fix routes on refresh, load more ships btn, break to components/containers with own css (app-flex-wrapper, json, list(props: search, pagination/feed ), replaceepisode_id by url.slice(url.indexOf('films/') + 'films//length')....
 
 export default class App extends Component {
 	render() {
