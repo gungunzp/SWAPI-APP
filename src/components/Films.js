@@ -32,7 +32,7 @@ class Films extends Component {
 	}
 
 	render() {
-		const { films } = this.props;
+		const { films, pending } = this.props;
 		const {
 			match: { url }
 		} = this.props;
@@ -57,7 +57,7 @@ class Films extends Component {
 								</li>
 							))
 						) : (
-							<div>Loading...</div>
+              <div>{pending ? 'Loading...' : 'No films found'}</div>
 						)}
 					</ul>
 					<Route path={`${url}/:movieId`} component={Movie} />

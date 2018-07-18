@@ -2,12 +2,9 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 export default class Menu extends Component {
-	constructor() {
-		super();
-		this.state = {
-			links: ['starships', 'films']
-		};
-	}
+	state = {
+		links: ['chat', 'starships', 'films']
+	};
 
 	render() {
 		return (
