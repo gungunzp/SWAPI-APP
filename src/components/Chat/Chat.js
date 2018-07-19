@@ -6,7 +6,7 @@ import './Chat.scss';
 
 export default class Chat extends Component {
 	state = {
-	  grouped: true,
+	  grouped: false,
 		messages: [
 			{
 				id: '11',

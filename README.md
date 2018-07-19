@@ -2,18 +2,17 @@ https://www.youtube.com/watch?v=MRlBKfGktwI
 https://www.valentinog.com/blog/webpack-tutorial/
 
 
-
 `npm init -y`
 
 `npm i webpack webpack-cli -D`
 
-`mkdir src`
-`cd src`
-`touch index.js`
-`cd ..`
+	`mkdir src`
+	`cd src`
+	`touch index.js`
+	`cd ..`
 
 ***********************************************
-`explorer package.json`
+	`explorer package.json`
 **************
 
 "scripts": {
@@ -34,14 +33,13 @@ or
 `npm i babel-core babel-loader babel-preset-env -D`
 
 
-add if you want to use ES experimental features:
-
+// add if you want to use ES experimental features: state = {}; ...
 `npm i babel-preset-stage-0 -D`
 
 
 ///////////////////////////////////////////////
-`touch webpack.config.js`
-`explorer webpack.config.js`
+	`touch webpack.config.js`
+	`explorer webpack.config.js`
 ///////////////////////////
 module.exports = {
   module: {
@@ -88,13 +86,13 @@ or
 ******************
 
 
-`touch src/index.html`
+	`touch src/index.html`
 
 
 `npm i html-webpack-plugin -D`
 
 // to minify html while building
-`npm i html-loader -D`
+	`npm i html-loader -D`
 
 ///////////////////////////////////////////////
 const HtmlWebPackPlugin = require("html-webpack-plugin");
@@ -129,9 +127,10 @@ module.exports = {
 };
 ///////////////////////////////////////////////
 
-`npm i node-sass -D`
+`npm i css-loader node-sass sass-loader -D`
 
-`npm i css-loader style-loader sass-loader -D`
+// paste css to <head>
+	`npm i style-loader -D`
 
 
 !!!with @next
@@ -145,7 +144,7 @@ module.exports = {
 // `npm i react-hot-loader -D`
 
 
-// for fonts
+// for fonts, css libs
 `npm i copy-webpack-plugin -D`
 
 
@@ -159,7 +158,7 @@ module.exports = {
 
 
 // for async await
-`npm i babel-polyfill -D`
+	`npm i babel-polyfill -D`
 
 
 // from Den Kuzn `file-loader style-loader`
